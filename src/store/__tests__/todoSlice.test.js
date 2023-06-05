@@ -15,7 +15,8 @@ global.fetch = jest.fn();
 
 describe("todoSlice", () => {
   test("should return default state when passed an empty action", () => {
-    const result = todoSlice(undefined, { type: "" });
+    const action = { type: "", payload: "" };
+    const result = todoSlice(initialState, action);
 
     expect(result).toEqual(initialState);
   });
@@ -134,7 +135,7 @@ describe("todoSlice", () => {
     expect(state).toEqual({
       todos: [],
       status: "rejected",
-      error: "can't fetch",
+      error: "Can't fetch",
     });
   });
 });
