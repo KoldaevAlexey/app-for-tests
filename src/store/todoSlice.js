@@ -23,7 +23,7 @@ export const fetchTodos = createAsyncThunk(
 
 const setError = (state, action) => {
   state.status = "rejected";
-  state.error = action.error.message;
+  state.error = "Can't fetch";
 };
 
 const todoSlice = createSlice({
