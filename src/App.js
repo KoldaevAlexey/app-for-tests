@@ -4,11 +4,7 @@ import "./App.css";
 
 import List from "./components/List/List";
 import Search from "./components/Search/Search";
-import AboutPage from "./pages/AboutPage";
-import MainPage from "./pages/MainPage";
-import NotFound from "./pages/NotFound";
-import Users from "./components/Users/Users";
-import UserDetailsPage from "./pages/UserDetailsPage";
+import AppRouter from "./components/AppRouter/AppRouter";
 
 const data = ["asd", "sdf", "dfg", "ghj", "hjk", "jkl"];
 
@@ -47,13 +43,7 @@ function App() {
                     <List items={items} />
                 </header>
             </div>
-            <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/users" element={<Users />} />
-                <Route path="/users/:id" element={<UserDetailsPage />} />
-                <Route path="/*" element={<NotFound />} />
-            </Routes>
+            <AppRouter/>
         </div>
     );
 }

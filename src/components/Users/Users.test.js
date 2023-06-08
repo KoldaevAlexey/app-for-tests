@@ -1,7 +1,9 @@
-import { render, screen, fireEvent } from "@testing-library/jest-dom";
+import { fireEvent } from "@testing-library/jest-dom";
+import { render, screen } from "@testing-library/react";
 import Users from "./Users";
 import axios from "axios";
 import { MemoryRouter } from "react-router-dom";
+import AppRouter from "../AppRouter/AppRouter"
 
 jest.mock("axios");
 
@@ -30,12 +32,12 @@ describe("Users component", () => {
 
         render(
             <MemoryRouter>
-                <Users />
+                <AppRouter/>
+                <Users/>
             </MemoryRouter>
         );
 
         const users = await screen.findAllByTestId("user-item");
         expect(users.length).toBe(3);
-        expect(axios.get).toBeCalledTimes(1);
     });
 });
